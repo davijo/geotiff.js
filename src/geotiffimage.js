@@ -342,7 +342,10 @@ class GeoTIFFImage {
                 }
               }
             }
-          });
+          })
+            .catch((err) => {
+              return console.warn('geotiffimage error:', err);
+            });
         }
       }
     }

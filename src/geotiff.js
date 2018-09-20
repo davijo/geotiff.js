@@ -1,13 +1,13 @@
-import { fieldTypes, fieldTagNames, arrayFields, geoKeyNames } from './globals';
+import * as globals from './globals';
 import GeoTIFFImage from './geotiffimage';
 import DataView64 from './dataview64';
 import DataSlice from './dataslice';
 import { makeRemoteSource, makeBufferSource, makeFileSource, makeFileReaderSource } from './source';
 import Pool from './pool';
-
-import * as globals from './globals';
-export { globals };
 import * as rgb from './rgb';
+
+const { fieldTypes, fieldTagNames, arrayFields, geoKeyNames } = globals;
+export { globals };
 export { rgb };
 
 function getFieldTypeLength(fieldType) {
