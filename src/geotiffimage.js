@@ -344,12 +344,14 @@ class GeoTIFFImage {
             }
           })
             .catch((err) => {
-              return console.warn('geotiffimage error:', err);
+              throw new Error(err);
             });
         }
       }
     }
-    await Promise.all(promises);
+    await Promise.all(promises).catch((err) => {
+      console.warn('geotiffimage promise all error:', err);
+    });
 
     if ((width && (imageWindow[2] - imageWindow[0]) !== width)
         || (height && (imageWindow[3] - imageWindow[1]) !== height)) {
